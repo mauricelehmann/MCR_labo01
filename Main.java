@@ -1,33 +1,27 @@
-import java.util.Timer;
-import java.util.TimerTask;
+import GUI.NumericViewGui;
+import clockListener.NumericView;
+import engine.Clock;
+import clockListener.ClockView;
+
 import java.util.concurrent.TimeUnit;
 
 public class Main {
-    private Timer timer;
-    Main(){
-        timer = new Timer();
-    }
-
-    public void start(){
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                System.out.println("coucou");
-            }
-        }, 0, 1000);
-    }
-    public void pause()
-    {
-        timer.cancel(); 
-    }
-
 
     public static void main(String[] args) throws InterruptedException {
-        Main m1 = new Main();
-        m1.start();
+
+
+
+
+        Clock clock = new Clock();
+        clock.addClockListener(new NumericView());
+
+
+        clock.start();
         TimeUnit.SECONDS.sleep(10);
-        m1.pause();
+        clock.stop();
         System.out.println("FIN");
+
+
     }
 
 }
