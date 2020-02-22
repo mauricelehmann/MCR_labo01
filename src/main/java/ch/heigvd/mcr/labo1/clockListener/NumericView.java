@@ -1,4 +1,4 @@
-package clockListener;
+package ch.heigvd.mcr.labo1.clockListener;
 
 import javax.swing.*;
 

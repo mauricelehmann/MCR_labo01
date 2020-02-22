@@ -1,13 +1,11 @@
-package engine;
+package ch.heigvd.mcr.labo1.engine;
 
+import ch.heigvd.mcr.labo1.clockListener.ClockView;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import clockListener.ClockView;
-
 public class Clock {
-
     ArrayList<ClockView> clockListener = new ArrayList<ClockView>();
     private Timer timer;
     private int seconds;

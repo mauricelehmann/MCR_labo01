@@ -1,4 +1,4 @@
-package GUI;
+package ch.heigvd.mcr.labo1.GUI;
 
 import javax.swing.*;
 
