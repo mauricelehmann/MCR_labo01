@@ -1,19 +1,23 @@
-package engine;
+package ch.heigvd.mcr.labo1.engine;
 
+import ch.heigvd.mcr.labo1.clockListener.ClockView;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import clockListener.ClockView;
-
 public class Clock {
-
     ArrayList<ClockView> clockListener = new ArrayList<ClockView>();
     private Timer timer;
     private int seconds;
 
-    public void start(){
+    public void start() {
+        // if a timer is already running do nothing
+        if(timer != null) {
+            return;
+        }
+
         this.timer = new Timer();
+
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
@@ -23,7 +27,7 @@ public class Clock {
                 }
                 setTime(seconds + 1);
             }
-        }, 0, 10);
+        }, 0, 1000);
     }
     public void reset(){
         seconds = 0;
