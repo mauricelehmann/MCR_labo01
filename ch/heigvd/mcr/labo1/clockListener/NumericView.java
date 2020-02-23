@@ -3,15 +3,12 @@ package ch.heigvd.mcr.labo1.clockListener;
 import javax.swing.*;
 
 public class NumericView extends ClockView {
-    private JFrame frame = null;
     private JLabel time;
 
     public NumericView(JFrame frame) {
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(300,300);
-        time = new JLabel("00h 00m 00s");
-        frame.setVisible(true);
+        time = new JLabel("00:00:00");
         frame.add(time);
+        frame.setVisible(true);
     }
     public void update(int totalSeconds){
         super.update(totalSeconds);

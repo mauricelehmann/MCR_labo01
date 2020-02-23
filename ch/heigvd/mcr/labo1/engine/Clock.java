@@ -15,32 +15,36 @@ public class Clock {
         if(timer != null) {
             return;
         }
-
         this.timer = new Timer();
-
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                System.out.println("tic tac");
-                for(ClockView cv : clockListener){
-                    cv.update(seconds);
-                }
+                Clock.this.sendUpdate();
                 setTime(seconds + 1);
             }
         }, 0, 1000);
     }
     public void reset(){
-        seconds = 0;
+        setTime(0);
+        this.sendUpdate();
     }
-    public void stop() throws InterruptedException {
-        timer.cancel();
-        this.reset();
+    public void stop() {
+        if(timer != null) {
+            this.reset();
+            timer.cancel();
+            timer = null;
+        }
     }
 
     public void addClockListener(ClockView view){
         clockListener.add(view);
     }
-    public void setTime(int time){
+    private void setTime(int time){
         this.seconds = time;
+    }
+    private void sendUpdate(){
+        for(ClockView cv : clockListener){
+            cv.update(seconds);
+        }
     }
 }
