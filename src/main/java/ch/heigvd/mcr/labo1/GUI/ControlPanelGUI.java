@@ -23,7 +23,6 @@ public class ControlPanelGUI {
         // initialize frame
         frame = new JFrame("My First GUI");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(300,300);
         frame.setLayout(new GridLayout(2, 4));
 
         startClockButton.addActionListener(actionEvent -> clock.start());
