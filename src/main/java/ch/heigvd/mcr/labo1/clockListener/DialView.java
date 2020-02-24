@@ -7,17 +7,17 @@ import java.net.URL;
 public class DialView extends ClockView {
     private JLabel clockImg = new JLabel();
 
-    public DialView(JFrame frame) {
-        URL path = DialView.class.getResource("/img/clock1.jpg");
+    public DialView(JPanel panel, String imgPath) {
+        super(panel);
+
+        URL path = DialView.class.getResource(imgPath);
 
         ImageIcon ic = new ImageIcon(path);
         Image dialImg = ic.getImage();
-        dialImg = dialImg.getScaledInstance(frame.getSize().height - 50,frame.getSize().width - 50,java.awt.Image.SCALE_SMOOTH);
+        dialImg = dialImg.getScaledInstance(panel.getSize().height - 50,panel.getSize().width - 50,java.awt.Image.SCALE_SMOOTH);
         ic = new ImageIcon(dialImg);
         clockImg.setIcon(ic);
-        frame.getContentPane().add(clockImg);
-        frame.pack();
-        frame.setVisible(true);
+        panel.add(clockImg);
     }
     
     public void update(int totalSeconds){
