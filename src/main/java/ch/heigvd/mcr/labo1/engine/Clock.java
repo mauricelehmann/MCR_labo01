@@ -29,6 +29,7 @@ public class Clock {
         this.sendUpdate();
     }
     public void stop() {
+        // TODO: does stop should pause or entirely stop the clock ?
         if(timer != null) {
             this.reset();
             timer.cancel();
