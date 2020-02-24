@@ -2,14 +2,13 @@ package ch.heigvd.mcr.labo1.clockListener;
 
 import javax.swing.*;
 import java.awt.*;
-import java.nio.file.Paths;
+import java.net.URL;
 
-public class DialView extends ClockView{
+public class DialView extends ClockView {
     private JLabel time;
 
     public DialView(JFrame frame) {
-
-        String path = "C:\\Users\\mle\\Desktop\\COURS\\2 eme\\SEMESTRE 2\\MCR\\Labos\\01\\source\\src\\ch\\heigvd\\mcr\\labo1\\img\\clock1.jpg";
+        URL path = DialView.class.getResource("/img/clock1.jpg");
 
         ImageIcon ic = new ImageIcon(path);
         Image dialImg = ic.getImage();
