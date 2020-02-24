@@ -9,8 +9,8 @@ import java.awt.*;
 
 public class ControlPanelGUI {
     private final String BASE_IMG_PATH = "/img/";
-    private final String ROMAN_DIAL_IMG_PATH = BASE_IMG_PATH + "clock1.jpg";
-    private final String ARABIC_DIAL_IMG_PATH = BASE_IMG_PATH + "clock2.jpg";
+    private final String ARABIC_DIAL_IMG_PATH = BASE_IMG_PATH + "clock1.jpg";
+    private final String ROMAN_DIAL_IMG_PATH = BASE_IMG_PATH + "clock2.jpg";
 
     private JButton numericViewButton = new JButton("Horloge numérique");
     private JButton dialRomanViewButton = new JButton("Horloge romaine");
