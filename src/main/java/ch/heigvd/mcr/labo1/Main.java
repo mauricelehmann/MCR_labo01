@@ -6,7 +6,6 @@ import ch.heigvd.mcr.labo1.engine.Clock;
 public class Main {
 
     public static void main(String[] args) throws InterruptedException {
-        Clock clock = new Clock();
-        ControlPanelGUI numericViewGui = new ControlPanelGUI(clock);
+        ControlPanelGUI numericViewGui = new ControlPanelGUI(new Clock());
     }
 }

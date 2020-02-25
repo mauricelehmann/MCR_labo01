@@ -30,6 +30,7 @@ public class ControlPanelGUI {
         // initialize frame
         controlPanelWindow = new JFrame("My First GUI");
         controlPanelWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        controlPanelWindow.setPreferredSize(new Dimension(650, 400));
         controlPanelWindow.setLayout(new GridLayout(2, 4));
 
         // Add action to buttons

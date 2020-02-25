@@ -24,14 +24,13 @@ public class Clock {
             }
         }, 0, 1000);
     }
+
     public void reset(){
         setTime(0);
         this.sendUpdate();
     }
     public void stop() {
-        // TODO: does stop should pause or entirely stop the clock ?
         if(timer != null) {
-            this.reset();
             timer.cancel();
             timer = null;
         }
