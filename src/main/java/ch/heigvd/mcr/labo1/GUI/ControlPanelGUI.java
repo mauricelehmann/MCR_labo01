@@ -16,34 +16,34 @@ public class ControlPanelGUI {
     private JButton dialRomanViewButton = new JButton("Horloge romaine");
     private JButton dialArabicViewButton = new JButton("Horloge arabe");
     private JButton mixedClockViewButton = new JButton("Horloge mixte");
-    private JButton startClockButton = new JButton("Démarrer");
-    private JButton stopClockButton = new JButton("Arreter");
-    private JButton resetClockButton = new JButton("Réinitialiser");
-    private JButton exitButton = new JButton("Quitter");
 
-    private JFrame controlPanelWindow;
     private Clock clock;
 
     public ControlPanelGUI(Clock clock) {
+
         this.clock = clock;
+        JButton startClockButton = new JButton("Démarrer");
+        JButton stopClockButton = new JButton("Arreter");
+        JButton resetClockButton = new JButton("Réinitialiser");
+        JButton exitButton = new JButton("Quitter");
 
         // initialize frame
-        controlPanelWindow = new JFrame("My First GUI");
+        JFrame controlPanelWindow = new JFrame("JHorloge");
         controlPanelWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         controlPanelWindow.setPreferredSize(new Dimension(650, 100));
         controlPanelWindow.setLayout(new FlowLayout());
 
         // Add action to buttons
         dialRomanViewButton.addActionListener(actionEvent ->
-                createDialView(createWindow(dialRomanViewButton.getText()), ROMAN_DIAL_IMG_PATH)
+                initDialView(createWindow(dialRomanViewButton.getText()), ROMAN_DIAL_IMG_PATH)
         );
 
         dialArabicViewButton.addActionListener(actionEvent ->
-                createDialView(createWindow(dialArabicViewButton.getText()), ARABIC_DIAL_IMG_PATH)
+                initDialView(createWindow(dialArabicViewButton.getText()), ARABIC_DIAL_IMG_PATH)
         );
 
         numericViewButton.addActionListener(actionEvent ->
-                createNumericView(createWindow(numericViewButton.getText()))
+                initNumericView(createWindow(numericViewButton.getText()))
         );
 
         mixedClockViewButton.addActionListener(actionEvent ->
@@ -53,17 +53,17 @@ public class ControlPanelGUI {
         startClockButton.addActionListener(actionEvent -> clock.start());
         resetClockButton.addActionListener(actionEvent -> clock.reset());
         stopClockButton.addActionListener(actionEvent -> clock.stop());
-        // TODO : close app exitButton.addActionListener(actionEvent -> );
 
         // Add elements to content pane of frame
-        controlPanelWindow.getContentPane().add(dialRomanViewButton);
-        controlPanelWindow.getContentPane().add(dialArabicViewButton);
-        controlPanelWindow.getContentPane().add(numericViewButton);
-        controlPanelWindow.getContentPane().add(mixedClockViewButton);
-        controlPanelWindow.getContentPane().add(startClockButton);
-        controlPanelWindow.getContentPane().add(stopClockButton);
-        controlPanelWindow.getContentPane().add(resetClockButton);
-        controlPanelWindow.getContentPane().add(exitButton);
+
+        controlPanelWindow.add(dialRomanViewButton);
+        controlPanelWindow.add(dialArabicViewButton);
+        controlPanelWindow.add(numericViewButton);
+        controlPanelWindow.add(mixedClockViewButton);
+        controlPanelWindow.add(startClockButton);
+        controlPanelWindow.add(stopClockButton);
+        controlPanelWindow.add(resetClockButton);
+        controlPanelWindow.add(exitButton);
 
         controlPanelWindow.pack();
         controlPanelWindow.setVisible(true);
@@ -78,29 +78,23 @@ public class ControlPanelGUI {
         return window;
     }
 
-    private NumericView createNumericView(JFrame window) {
+    private void initNumericView(JFrame window) {
         NumericView numericView = new NumericView(300, 300);
         window.add(numericView);
-
         clock.addClockListener(numericView);
-
-        return numericView;
     }
 
-    private DialView createDialView(JFrame window, String imgPath){
+    private void initDialView(JFrame window, String imgPath){
         DialView dialView = new DialView(imgPath, window.getWidth(), window.getHeight());
         window.add(dialView);
         clock.addClockListener(dialView);
-
-        return dialView;
     }
 
     private void createMixedView(JFrame window) {
         window.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
-        createDialView(window, ROMAN_DIAL_IMG_PATH);
-        createDialView(window, ARABIC_DIAL_IMG_PATH);
-        createNumericView(window);
+        initDialView(window, ROMAN_DIAL_IMG_PATH);
+        initDialView(window, ARABIC_DIAL_IMG_PATH);
+        initNumericView(window);
         window.pack();
     }
-
 }

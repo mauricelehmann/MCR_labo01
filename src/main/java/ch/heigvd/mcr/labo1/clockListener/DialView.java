@@ -24,7 +24,6 @@ public class DialView extends ClockView {
         try {
             dialImg = ImageIO.read(DialView.class.getResource(imgPath));
         } catch (IOException ex){
-            //TODO: do something!
             System.out.println("Can't load image " + imgPath);
         }
     }
