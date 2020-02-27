@@ -15,9 +15,10 @@ public class DialView extends ClockView {
         super(width, height);
         this.imgPath = imgPath;
 
-        hoursNeedle = new Line2D.Double(getWidth() / 2, getHeight() / 2,getWidth() / 2, 50);
-        minutesNeedle = new Line2D.Double(getWidth() / 2, getHeight() / 2,getWidth() / 2, 40);
-        secondsNeedle = new Line2D.Double(getWidth() / 2, getHeight() / 2,getWidth() / 2, 10);
+        Point center = new Point(getMinDimension() /2, getMinDimension()/2);
+        hoursNeedle = new Line2D.Double(center , new Point(getMinDimension() /2, 100));
+        minutesNeedle = new Line2D.Double(center , new Point(getMinDimension() /2,80));
+        secondsNeedle = new Line2D.Double(center , new Point(getMinDimension() /2,50));
     }
 
     public void update(int totalSeconds){
@@ -32,13 +33,15 @@ public class DialView extends ClockView {
         // Affiche l'image
         graphics.drawImage(getScaledDialImage(imgPath),0,0,this);
 
-        hoursNeedle.setLine(getWidth() / 2, getHeight() / 2,getWidth() / 2, 50);
-        minutesNeedle.setLine(getWidth() / 2, getHeight() / 2,getWidth() / 2, 40);
-        secondsNeedle.setLine(getWidth() / 2, getHeight() / 2,getWidth() / 2, 10);
+        Point center = new Point(getMinDimension() / 2,getMinDimension() / 2);
+
+        hoursNeedle.setLine(center , new Point(getMinDimension() /2, 100));
+        minutesNeedle.setLine(center , new Point(getMinDimension() /2,80));
+        secondsNeedle.setLine(center , new Point(getMinDimension() /2,50));
 
         rotateNeedle(graphics, secondsNeedle, 1, seconds(), Color.RED);
         rotateNeedle(graphics, minutesNeedle, 5, minutes(), Color.BLUE);
-        rotateNeedle(graphics, hoursNeedle, 10, hours(), Color.BLACK);
+        rotateNeedle(graphics, hoursNeedle, 7, hours(), Color.BLACK);
     }
 
     private void rotateNeedle(Graphics graphics, Line2D line, int stroke, float angle, Color color) {
@@ -65,8 +68,8 @@ public class DialView extends ClockView {
         }
 
         //Rescale the image
-        Image scaledImg = dialImg.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
-        BufferedImage bufferedImg = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
+        Image scaledImg = dialImg.getScaledInstance(getMinDimension(), getMinDimension(), Image.SCALE_SMOOTH);
+        BufferedImage bufferedImg = new BufferedImage(getMinDimension(), getMinDimension(), BufferedImage.TYPE_INT_ARGB);
 
         //Reconvert into an BufferedImage
         Graphics2D g2d = bufferedImg.createGraphics();
@@ -75,4 +78,9 @@ public class DialView extends ClockView {
 
         return bufferedImg;
     }
+
+    private int getMinDimension(){
+        return Math.min(getHeight(),getWidth());
+    }
+
 }
