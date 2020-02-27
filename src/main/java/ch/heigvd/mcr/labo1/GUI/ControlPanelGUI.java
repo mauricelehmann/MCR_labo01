@@ -6,6 +6,8 @@ import ch.heigvd.mcr.labo1.engine.Clock;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 public class ControlPanelGUI {
     private final String BASE_IMG_PATH = "/img/";
@@ -74,21 +76,31 @@ public class ControlPanelGUI {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setSize(300, 300);
         window.setVisible(true);
+
         return window;
     }
 
     private NumericView createNumericView(JFrame window) {
         NumericView numericView = new NumericView(300, 300);
         window.add(numericView);
+
         clock.addClockListener(numericView);
 
         return numericView;
     }
 
     private DialView createDialView(JFrame window, String imgPath){
-        DialView dialView = new DialView(imgPath, 300, 300);
+        DialView dialView = new DialView(imgPath, window.getWidth(), window.getHeight());
         window.add(dialView);
         clock.addClockListener(dialView);
+
+
+       /* window.addComponentListener(new ComponentAdapter() {
+            public void componentResized(ComponentEvent componentEvent) {
+                //dialView.updateScale(window.getWidth(),window.getHeight());
+            }
+        });*/
+
 
         return dialView;
     }

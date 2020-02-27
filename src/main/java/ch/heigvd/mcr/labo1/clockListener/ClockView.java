@@ -3,7 +3,7 @@ package ch.heigvd.mcr.labo1.clockListener;
 import javax.swing.*;
 import java.awt.*;
 
-public abstract class ClockView extends JLabel {
+public abstract class ClockView extends JPanel {
     private int allSeconds;
 
     public ClockView(int width, int height) {
