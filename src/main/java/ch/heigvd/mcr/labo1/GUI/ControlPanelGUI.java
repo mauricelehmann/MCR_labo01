@@ -73,10 +73,10 @@ public class ControlPanelGUI {
 
     private JFrame createWindow(String name) {
         JFrame window = new JFrame(name);
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         window.setSize(300, 300);
         window.setVisible(true);
-
         return window;
     }
 
