@@ -100,7 +100,7 @@ public class ControlPanelGUI {
     private void createMixedView(JFrame window) {
         window.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
         createDialView(window, ROMAN_DIAL_IMG_PATH);
-        //createDialView(window, ARABIC_DIAL_IMG_PATH);
+        createDialView(window, ARABIC_DIAL_IMG_PATH);
         createNumericView(window);
         window.pack();
     }
