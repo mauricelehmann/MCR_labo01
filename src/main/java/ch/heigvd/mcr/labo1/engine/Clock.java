@@ -33,6 +33,8 @@ public class Clock {
         if(timer != null) {
             timer.cancel();
             timer = null;
+        }else{
+            start();
         }
     }
 
