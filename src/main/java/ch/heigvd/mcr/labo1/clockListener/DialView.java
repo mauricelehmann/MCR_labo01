@@ -10,6 +10,7 @@ import java.io.IOException;
 public class DialView extends ClockView {
     private Line2D hoursNeedle, minutesNeedle, secondsNeedle;
     private String imgPath;
+
     public DialView(String imgPath, int width, int height) {
         super(width, height);
         this.imgPath = imgPath;
@@ -17,9 +18,7 @@ public class DialView extends ClockView {
         hoursNeedle = new Line2D.Double(getWidth() / 2, getHeight() / 2,getWidth() / 2, 50);
         minutesNeedle = new Line2D.Double(getWidth() / 2, getHeight() / 2,getWidth() / 2, 40);
         secondsNeedle = new Line2D.Double(getWidth() / 2, getHeight() / 2,getWidth() / 2, 10);
-
     }
-
 
     public void update(int totalSeconds){
         super.update(totalSeconds);
@@ -30,22 +29,22 @@ public class DialView extends ClockView {
     protected void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
 
-        //Affiche l'image
+        // Affiche l'image
         graphics.drawImage(getScaledDialImage(imgPath),0,0,this);
 
         hoursNeedle.setLine(getWidth() / 2, getHeight() / 2,getWidth() / 2, 50);
         minutesNeedle.setLine(getWidth() / 2, getHeight() / 2,getWidth() / 2, 40);
         secondsNeedle.setLine(getWidth() / 2, getHeight() / 2,getWidth() / 2, 10);
 
-        rotateNeedle(graphics, hoursNeedle, 10, hours());
-        rotateNeedle(graphics, minutesNeedle, 5, minutes());
-        rotateNeedle(graphics, secondsNeedle, 1, seconds());
-
+        rotateNeedle(graphics, secondsNeedle, 1, seconds(), Color.RED);
+        rotateNeedle(graphics, minutesNeedle, 5, minutes(), Color.BLUE);
+        rotateNeedle(graphics, hoursNeedle, 10, hours(), Color.BLACK);
     }
 
-    private void rotateNeedle(Graphics graphics, Line2D line, int stroke, float angle) {
+    private void rotateNeedle(Graphics graphics, Line2D line, int stroke, float angle, Color color) {
         Graphics2D graphics2D = (Graphics2D) graphics;
         graphics2D.setStroke(new BasicStroke(stroke));
+        graphics2D.setColor(color);
 
         AffineTransform rotation =
                 AffineTransform.getRotateInstance (

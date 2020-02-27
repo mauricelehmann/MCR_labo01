@@ -7,7 +7,8 @@ public abstract class ClockView extends JPanel {
     private int allSeconds;
 
     public ClockView(int width, int height) {
-        setSize(width, height);
+        setPreferredSize(new Dimension(width, height));
+        setMinimumSize(new Dimension(width, height));
     }
 
     public void update(int seconds){

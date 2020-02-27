@@ -94,14 +94,6 @@ public class ControlPanelGUI {
         window.add(dialView);
         clock.addClockListener(dialView);
 
-
-       /* window.addComponentListener(new ComponentAdapter() {
-            public void componentResized(ComponentEvent componentEvent) {
-                //dialView.updateScale(window.getWidth(),window.getHeight());
-            }
-        });*/
-
-
         return dialView;
     }
 
