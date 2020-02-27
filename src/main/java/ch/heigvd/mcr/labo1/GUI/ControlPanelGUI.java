@@ -6,8 +6,6 @@ import ch.heigvd.mcr.labo1.engine.Clock;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
 
 public class ControlPanelGUI {
     private final String BASE_IMG_PATH = "/img/";
@@ -32,8 +30,8 @@ public class ControlPanelGUI {
         // initialize frame
         controlPanelWindow = new JFrame("My First GUI");
         controlPanelWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        controlPanelWindow.setPreferredSize(new Dimension(650, 400));
-        controlPanelWindow.setLayout(new GridLayout(2, 4));
+        controlPanelWindow.setPreferredSize(new Dimension(650, 100));
+        controlPanelWindow.setLayout(new FlowLayout());
 
         // Add action to buttons
         dialRomanViewButton.addActionListener(actionEvent ->
