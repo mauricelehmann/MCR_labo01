@@ -3,17 +3,14 @@ package ch.heigvd.mcr.labo1.clockListener;
 import javax.swing.*;
 
 public class NumericView extends ClockView {
-    private JLabel time;
+    public NumericView(int width, int height) {
+        super(width, height);
 
-    public NumericView(JPanel panel) {
-        super(panel);
-
-        time = new JLabel("00:00:00");
-        panel.add(time);
+        setText("00:00:00");
     }
 
     public void update(int totalSeconds){
         super.update(totalSeconds);
-        time.setText(String.format("%02d:%02d:%02d", hours(), minutes(), seconds()));
+        setText(String.format("%02d:%02d:%02d", hours(), minutes(), seconds()));
     }
 }

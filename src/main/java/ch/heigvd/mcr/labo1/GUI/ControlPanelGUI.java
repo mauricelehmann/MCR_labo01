@@ -78,22 +78,16 @@ public class ControlPanelGUI {
     }
 
     private NumericView createNumericView(JFrame window) {
-        JPanel panel = new JPanel();
-        panel.setSize(300, 300);
-        window.add(panel);
-
-        NumericView numericView = new NumericView(panel);
+        NumericView numericView = new NumericView(300, 300);
+        window.add(numericView);
         clock.addClockListener(numericView);
 
         return numericView;
     }
 
     private DialView createDialView(JFrame window, String imgPath){
-        JPanel panel = new JPanel();
-        panel.setSize(300, 300);
-        window.add(panel);
-
-        DialView dialView = new DialView(panel, imgPath);
+        DialView dialView = new DialView(imgPath, 300, 300);
+        window.add(dialView);
         clock.addClockListener(dialView);
 
         return dialView;
@@ -105,8 +99,6 @@ public class ControlPanelGUI {
         DialView romanDialView = createDialView(window, ROMAN_DIAL_IMG_PATH);
         DialView arabicDialView = createDialView(window, ARABIC_DIAL_IMG_PATH);
         NumericView numericView = createNumericView(window);
-
-        window.pack();
     }
 
 }

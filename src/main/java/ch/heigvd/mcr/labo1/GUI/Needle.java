@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Line2D;
 
-public class Needle extends JPanel {
+/*public class Needle extends Line2D {
     private float angle;
     private int stroke;
     private Line2D line;
@@ -34,4 +34,4 @@ public class Needle extends JPanel {
         this.angle = angle;
         this.repaint();
     }
-}
+}*/

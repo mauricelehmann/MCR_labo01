@@ -1,13 +1,13 @@
 package ch.heigvd.mcr.labo1.clockListener;
 
 import javax.swing.*;
+import java.awt.*;
 
-public abstract class ClockView {
-    private JPanel panel = null;
+public abstract class ClockView extends JLabel {
     private int allSeconds;
 
-    public ClockView(JPanel panel) {
-        this.panel = panel;
+    public ClockView(int width, int height) {
+        setSize(width, height);
     }
 
     public void update(int seconds){
