@@ -89,12 +89,12 @@ public class ControlPanelGUI {
     }
 
     private DialView createDialView(JFrame window, String imgPath){
-        JPanel panel = new JPanel();
-        panel.setSize(300, 300);
-        window.add(panel);
 
-        DialView dialView = new DialView(panel, imgPath);
+        DialView dialView = new DialView(window, imgPath);
         clock.addClockListener(dialView);
+
+        //TODO : A discuter !!!
+        window.setResizable(false);
 
         return dialView;
     }
@@ -102,6 +102,7 @@ public class ControlPanelGUI {
     private void createMixedView(JFrame window) {
         window.setLayout(new GridLayout(1, 3));
 
+        //TODO : Mettre createDialView en void ?
         DialView romanDialView = createDialView(window, ROMAN_DIAL_IMG_PATH);
         DialView arabicDialView = createDialView(window, ARABIC_DIAL_IMG_PATH);
         NumericView numericView = createNumericView(window);

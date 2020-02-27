@@ -22,13 +22,15 @@ public class Clock {
                 Clock.this.sendUpdate();
                 setTime(seconds + 1);
             }
-        }, 0, 1000);
+        }, 0, 1);
     }
 
     public void reset(){
         setTime(0);
         this.sendUpdate();
     }
+
+    //TODO : Enfaite il faut pouvoir faire "pause" en cliquant une fois , puis pouvoir reprendre en cliquant sur le MEME bouton !
     public void stop() {
         if(timer != null) {
             timer.cancel();

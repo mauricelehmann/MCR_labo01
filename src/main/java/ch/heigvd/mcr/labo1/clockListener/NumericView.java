@@ -6,7 +6,6 @@ public class NumericView extends ClockView {
     private JLabel time;
 
     public NumericView(JPanel panel) {
-        super(panel);
 
         time = new JLabel("00:00:00");
         panel.add(time);
