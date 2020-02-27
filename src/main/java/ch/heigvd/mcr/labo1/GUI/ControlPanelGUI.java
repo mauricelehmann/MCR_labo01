@@ -94,11 +94,11 @@ public class ControlPanelGUI {
     }
 
     private void createMixedView(JFrame window) {
-        window.setLayout(new GridLayout(1, 3));
-
-        DialView romanDialView = createDialView(window, ROMAN_DIAL_IMG_PATH);
-        DialView arabicDialView = createDialView(window, ARABIC_DIAL_IMG_PATH);
-        NumericView numericView = createNumericView(window);
+        window.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
+        createDialView(window, ROMAN_DIAL_IMG_PATH);
+        createDialView(window, ARABIC_DIAL_IMG_PATH);
+        createNumericView(window);
+        window.pack();
     }
 
 }
