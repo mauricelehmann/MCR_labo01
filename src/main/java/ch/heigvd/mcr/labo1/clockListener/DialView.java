@@ -10,6 +10,7 @@ import java.io.IOException;
 public class DialView extends ClockView {
     private Line2D hoursNeedle, minutesNeedle, secondsNeedle;
     private String imgPath;
+    private BufferedImage dialImg;
 
     public DialView(String imgPath, int width, int height) {
         super(width, height);
@@ -19,6 +20,13 @@ public class DialView extends ClockView {
         hoursNeedle = new Line2D.Double(center , new Point(getMinDimension() /2, 100));
         minutesNeedle = new Line2D.Double(center , new Point(getMinDimension() /2,80));
         secondsNeedle = new Line2D.Double(center , new Point(getMinDimension() /2,50));
+
+        try {
+            dialImg = ImageIO.read(DialView.class.getResource(imgPath));
+        } catch (IOException ex){
+            //TODO: do something!
+            System.out.println("Can't load image " + imgPath);
+        }
     }
 
     public void update(int totalSeconds){
@@ -31,7 +39,7 @@ public class DialView extends ClockView {
         super.paintComponent(graphics);
 
         // Affiche l'image
-        graphics.drawImage(getScaledDialImage(imgPath),0,0,this);
+        graphics.drawImage(getScaledDialImage(),0,0,this);
 
         Point center = new Point(getMinDimension() / 2,getMinDimension() / 2);
 
@@ -57,23 +65,14 @@ public class DialView extends ClockView {
         graphics2D.draw(rotation.createTransformedShape(line));
     }
 
-    private BufferedImage getScaledDialImage(String path){
-        //Set image of the dial on background
-        //URL path = DialView.class.getResource(imgPath);
-        BufferedImage dialImg = null;
-        try {
-            dialImg = ImageIO.read(DialView.class.getResource(path));
-        } catch (IOException ex){
-            //TODO do something!
-        }
-
-        //Rescale the image
-        Image scaledImg = dialImg.getScaledInstance(getMinDimension(), getMinDimension(), Image.SCALE_SMOOTH);
+    private BufferedImage getScaledDialImage(){
+        // Rescale the image
+        Image scaledImg = dialImg.getScaledInstance(getMinDimension(), getMinDimension(), Image.SCALE_FAST);
         BufferedImage bufferedImg = new BufferedImage(getMinDimension(), getMinDimension(), BufferedImage.TYPE_INT_ARGB);
 
-        //Reconvert into an BufferedImage
+        // Reconvert into an BufferedImage
         Graphics2D g2d = bufferedImg.createGraphics();
-        g2d.drawImage(scaledImg, 0, 0, null);
+        g2d.drawImage(scaledImg, 0, 0, this);
         g2d.dispose();
 
         return bufferedImg;
