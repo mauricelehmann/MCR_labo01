@@ -16,10 +16,11 @@ public class DialView extends ClockView {
         super(width, height);
         this.imgPath = imgPath;
 
-        Point center = new Point(getMinDimension() /2, getMinDimension()/2);
-        hoursNeedle = new Line2D.Double(center , new Point(getMinDimension() /2, 100));
-        minutesNeedle = new Line2D.Double(center , new Point(getMinDimension() /2,80));
-        secondsNeedle = new Line2D.Double(center , new Point(getMinDimension() /2,50));
+        int minDimensionCenter = getMinDimension() / 2;
+        Point center = new Point(minDimensionCenter, minDimensionCenter);
+        hoursNeedle = new Line2D.Double(center , new Point(minDimensionCenter, 100));
+        minutesNeedle = new Line2D.Double(center , new Point(minDimensionCenter,80));
+        secondsNeedle = new Line2D.Double(center , new Point(minDimensionCenter,50));
 
         try {
             dialImg = ImageIO.read(DialView.class.getResource(imgPath));
@@ -41,11 +42,12 @@ public class DialView extends ClockView {
         // Affiche l'image
         graphics.drawImage(getScaledDialImage(),0,0,this);
 
-        Point center = new Point(getMinDimension() / 2,getMinDimension() / 2);
+        int minDimensionCenter = getMinDimension() / 2;
+        Point center = new Point(minDimensionCenter, minDimensionCenter);
 
-        hoursNeedle.setLine(center , new Point(getMinDimension() /2, 100));
-        minutesNeedle.setLine(center , new Point(getMinDimension() /2,80));
-        secondsNeedle.setLine(center , new Point(getMinDimension() /2,50));
+        hoursNeedle.setLine(center , new Point(minDimensionCenter, 100));
+        minutesNeedle.setLine(center , new Point(minDimensionCenter,80));
+        secondsNeedle.setLine(center , new Point(minDimensionCenter,50));
 
         rotateNeedle(graphics, secondsNeedle, 1, seconds(), Color.RED);
         rotateNeedle(graphics, minutesNeedle, 5, minutes(), Color.BLUE);
