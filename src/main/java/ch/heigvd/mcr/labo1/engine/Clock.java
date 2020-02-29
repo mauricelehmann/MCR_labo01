@@ -29,6 +29,7 @@ public class Clock {
         setTime(0);
         this.sendUpdate();
     }
+
     public void stop() {
         if(timer != null) {
             timer.cancel();
@@ -41,9 +42,11 @@ public class Clock {
     public void addClockListener(ClockView view){
         clockListener.add(view);
     }
+
     private void setTime(int time){
         this.seconds = time;
     }
+
     private void sendUpdate(){
         for(ClockView cv : clockListener){
             cv.update(seconds);

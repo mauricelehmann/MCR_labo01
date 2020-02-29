@@ -18,9 +18,11 @@ public abstract class ClockView extends JPanel {
     int hours(){
         return allSeconds / 3600;
     }
+
     int minutes(){
         return  (allSeconds % 3600) / 60;
     }
+
     int seconds(){
         return allSeconds % 60;
     }

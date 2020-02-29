@@ -9,12 +9,10 @@ import java.io.IOException;
 
 public class DialView extends ClockView {
     private Line2D hoursNeedle, minutesNeedle, secondsNeedle;
-    private String imgPath;
     private BufferedImage dialImg;
 
     public DialView(String imgPath, int width, int height) {
         super(width, height);
-        this.imgPath = imgPath;
 
         int minDimensionCenter = getMinDimension() / 2;
         Point center = new Point(minDimensionCenter, minDimensionCenter);
