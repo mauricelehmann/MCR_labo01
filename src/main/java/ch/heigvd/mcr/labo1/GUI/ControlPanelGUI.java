@@ -53,7 +53,7 @@ public class ControlPanelGUI {
         startClockButton.addActionListener(actionEvent -> clock.start());
         resetClockButton.addActionListener(actionEvent -> clock.reset());
         stopClockButton.addActionListener(actionEvent -> clock.stop());
-        // TODO : close app exitButton.addActionListener(actionEvent -> );
+        exitButton.addActionListener(actionEvent -> System.exit(0));
 
         // Add elements to content pane of frame
         controlPanelWindow.getContentPane().add(dialRomanViewButton);
