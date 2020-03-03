@@ -7,6 +7,10 @@ import ch.heigvd.mcr.labo1.engine.Clock;
 import javax.swing.*;
 import java.awt.*;
 
+
+/**
+ * Main control panel. Contains the buttons to start, initialize, stop the clock and create other GUI frames.
+ */
 public class ControlPanelGUI {
     private final String BASE_IMG_PATH = "/img/";
     private final String ARABIC_DIAL_IMG_PATH = BASE_IMG_PATH + "clock1.jpg";
@@ -69,6 +73,9 @@ public class ControlPanelGUI {
         controlPanelWindow.setVisible(true);
     }
 
+    /*
+     * Init. a new frame
+     */
     private JFrame createWindow(String name) {
         JFrame window = new JFrame(name);
 
@@ -78,6 +85,11 @@ public class ControlPanelGUI {
         return window;
     }
 
+    /**
+     * Create the GUI numeric view
+     * @param window
+     * @return
+     */
     private NumericView createNumericView(JFrame window) {
         NumericView numericView = new NumericView(300, 300);
         window.add(numericView);
@@ -87,6 +99,12 @@ public class ControlPanelGUI {
         return numericView;
     }
 
+    /**
+     * Create the GUI dial view
+     * @param window
+     * @param imgPath
+     * @return DialView
+     */
     private DialView createDialView(JFrame window, String imgPath){
         DialView dialView = new DialView(imgPath, window.getWidth(), window.getHeight());
         window.add(dialView);
@@ -95,6 +113,10 @@ public class ControlPanelGUI {
         return dialView;
     }
 
+    /**
+     * Create mixed view with two Dialview (roman & arabic) and numeric view
+     * @param window
+     */
     private void createMixedView(JFrame window) {
         window.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
         createDialView(window, ROMAN_DIAL_IMG_PATH);
@@ -102,5 +124,4 @@ public class ControlPanelGUI {
         createNumericView(window);
         window.pack();
     }
-
 }
