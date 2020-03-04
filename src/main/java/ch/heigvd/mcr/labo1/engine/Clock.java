@@ -50,7 +50,7 @@ public class Clock {
         this.sendUpdate();
     }
 
-    /*
+    /**
      * Stop the clock or start it if already stopped
      */
     public void stop() {
@@ -64,6 +64,7 @@ public class Clock {
 
     /**
      * Add an observer to the instance
+     *
      * @param view observer
      */
     public void addClockListener(ClockView view){
@@ -72,7 +73,8 @@ public class Clock {
 
     /**
      * Set the time (in seconds)
-     * @param time
+     *
+     * @param time the time in second
      */
     private void setTime(int time){
         this.seconds = time;

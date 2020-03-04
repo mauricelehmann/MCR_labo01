@@ -14,7 +14,6 @@ import ch.heigvd.mcr.labo1.engine.Clock;
 import javax.swing.*;
 import java.awt.*;
 
-
 /**
  * Main control panel. Contains the buttons to start, initialize, stop the clock and create other GUI frames.
  */
@@ -35,11 +34,16 @@ public class ControlPanelGUI {
     private JFrame controlPanelWindow;
     private Clock clock;
 
+    /**
+     * Constructor
+     *
+     * @param clock the clock
+     */
     public ControlPanelGUI(Clock clock) {
         this.clock = clock;
 
         // initialize frame
-        controlPanelWindow = new JFrame("My First GUI");
+        controlPanelWindow = new JFrame();
         controlPanelWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         controlPanelWindow.setPreferredSize(new Dimension(650, 100));
         controlPanelWindow.setLayout(new FlowLayout());
@@ -80,8 +84,11 @@ public class ControlPanelGUI {
         controlPanelWindow.setVisible(true);
     }
 
-    /*
+    /**
      * Init. a new frame
+     *
+     * @param name the window's name
+     * @return the new JFrame
      */
     private JFrame createWindow(String name) {
         JFrame window = new JFrame(name);
@@ -94,8 +101,9 @@ public class ControlPanelGUI {
 
     /**
      * Create the GUI numeric view
-     * @param window
-     * @return
+     *
+     * @param window the window on which to put the view
+     * @return the created view
      */
     private NumericView createNumericView(JFrame window) {
         NumericView numericView = new NumericView(300, 300);
@@ -108,9 +116,10 @@ public class ControlPanelGUI {
 
     /**
      * Create the GUI dial view
-     * @param window
-     * @param imgPath
-     * @return DialView
+     *
+     * @param window the window on which to put the view
+     * @param imgPath the dial background image
+     * @return DialView the created view
      */
     private DialView createDialView(JFrame window, String imgPath){
         DialView dialView = new DialView(imgPath, window.getWidth(), window.getHeight());
@@ -122,7 +131,8 @@ public class ControlPanelGUI {
 
     /**
      * Create mixed view with two Dialview (roman & arabic) and numeric view
-     * @param window
+     *
+     * @param window the window on which to put the view
      */
     private void createMixedView(JFrame window) {
         window.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));

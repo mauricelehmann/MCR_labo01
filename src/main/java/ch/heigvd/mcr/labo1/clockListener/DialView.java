@@ -43,6 +43,7 @@ public class DialView extends ClockView {
 
     /**
      * Update the DialView, change the needles positions based on the total seconds
+     *
      * @param totalSeconds
      */
     public void update(int totalSeconds){
@@ -53,6 +54,8 @@ public class DialView extends ClockView {
 
     /**
      * Paint the current DialView instance
+     *
+     * @param graphics the graphical element
      */
     @Override
     protected void paintComponent(Graphics graphics) {
@@ -74,6 +77,7 @@ public class DialView extends ClockView {
     }
 
     /**
+     * Draw needle with a given angle
      *
      * @param graphics Graphic component from paintComponent() method
      * @param line Line2D, the needle line
@@ -99,7 +103,7 @@ public class DialView extends ClockView {
 
     /**
      * Get the dial image in the right dimensions
-     * @return BufferedImage scaled
+     * @return the scaled image
      */
     private BufferedImage getScaledDialImage(){
         // Rescale the image
@@ -116,7 +120,7 @@ public class DialView extends ClockView {
 
     /**
      * Get the dimension of the JFrame parent (square mode)
-     * @return
+     * @return the minimum dimension between width and height
      */
     private int getMinDimension(){
         return Math.min(getHeight(),getWidth());

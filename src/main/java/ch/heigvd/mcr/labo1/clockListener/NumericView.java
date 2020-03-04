@@ -19,6 +19,7 @@ public class NumericView extends ClockView {
 
     /**
      * Constructor
+     *
      * @param width of the panel
      * @param height of the panel
      */
@@ -31,7 +32,8 @@ public class NumericView extends ClockView {
 
     /**
      * Update the view
-     * @param totalSeconds
+     *
+     * @param totalSeconds new total time in second
      */
     public void update(int totalSeconds){
         super.update(totalSeconds);
