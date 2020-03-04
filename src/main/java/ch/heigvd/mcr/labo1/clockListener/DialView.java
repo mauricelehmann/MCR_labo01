@@ -1,3 +1,11 @@
+/*
+ * File:   DialView.java
+ * MCR - Labo 1
+ * Author: Maurice Lehmann, Simon Walther
+ *
+ * Created on 4 March 2020
+ */
+
 package ch.heigvd.mcr.labo1.clockListener;
 
 import javax.imageio.ImageIO;
@@ -33,6 +41,10 @@ public class DialView extends ClockView {
         }
     }
 
+    /**
+     * Update the DialView, change the needles positions based on the total seconds
+     * @param totalSeconds
+     */
     public void update(int totalSeconds){
         super.update(totalSeconds);
         repaint();
@@ -46,7 +58,7 @@ public class DialView extends ClockView {
     protected void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
 
-        // Affiche l'image
+        // Print the image
         graphics.drawImage(getScaledDialImage(),0,0,this);
 
         int minDimensionCenter = getMinDimension() / 2;

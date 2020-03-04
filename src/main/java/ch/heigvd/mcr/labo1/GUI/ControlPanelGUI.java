@@ -1,3 +1,10 @@
+/*
+ * File:   ControlPanelGUI.java
+ * MCR - Labo 1
+ * Author: Maurice Lehmann, Simon Walther
+ *
+ * Created on 4 March 2020
+ */
 package ch.heigvd.mcr.labo1.GUI;
 
 import ch.heigvd.mcr.labo1.clockListener.DialView;
