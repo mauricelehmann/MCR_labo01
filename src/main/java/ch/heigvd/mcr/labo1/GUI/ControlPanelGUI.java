@@ -39,9 +39,9 @@ public class ControlPanelGUI {
         this.clock = clock;
 
         // initialize frame
-        controlPanelWindow = new JFrame("My First GUI");
+        controlPanelWindow = new JFrame("");
         controlPanelWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        controlPanelWindow.setPreferredSize(new Dimension(650, 100));
+        controlPanelWindow.setPreferredSize(new Dimension(650, 200));
         controlPanelWindow.setLayout(new FlowLayout());
 
         // Add action to buttons
